@@ -1,5 +1,18 @@
 ---
+const pageTitle = "About";
 
+const identity = {
+    firstName: "Percy",
+    country: "Sud Afrique",
+    occupation: "Nonsensist",
+    hobbies: ["programming", "languages", "cooking"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "REACT", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 
@@ -9,17 +22,36 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Pjx</title>
+        <title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Posts</a>
-		<h1>Pjx</h1>
+		<h1>{pageTitle}</h1>
 
         
-		<h2 class="sbh">About Pjx</h2>
-		<p>Aperiam dolorum fuga, quibusdam natus ea, ipsum, totam quis repellendus architecto quam facere quae fugit perspiciatis enim dicta quisquam minus ducimus rerum eligendi excepturi alias expedita. Culpa, dolores perferendis! Quos ea sequi eveniet! Itaque saepe est ducimus, provident corrupti exercitationem. Reiciendis repellendus laboriosam sit libero ea ad accusantium, non dicta dolorem illo amet assumenda error debitis quaerat nihil aspernatur et impedit repellat velit sunt accusamus, nulla voluptates cupiditate iusto. Nihil?</p>
+		<h2 class="sbh">About The Doggerel Journal</h2>
+		<p>Here are a few factoids about us:</p>
+        <ul>
+            <li>My Name is {identity.firstName}.</li>
+            <li>I live in {identity.country} and i Work as an {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 &&
+            <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+            }
+        </ul>
+
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}    
+        </ul>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam incidunt hic tenetur.</p>
+
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {finished && <p>I finished this tutorial!</p>}
+
+        {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 	</body>
 </html>
 
